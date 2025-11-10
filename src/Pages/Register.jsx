@@ -13,7 +13,7 @@ const Register = () => {
     const email = e.target.email.value
     const photo = e.target.photo.value
     const password = e.target.password.value
-    // console.log(name,email,photo,password)
+    console.log(name,email,photo,password)
     createUser(email,password)
     .then(result=>{
       console.log(result)
@@ -39,7 +39,7 @@ const Register = () => {
           <label className="label">Name</label>
           <input name='name' type="text" className="input" placeholder="Your Name" />
           <label className="label">Email</label>
-          <input name='email' type="email" className="input" placeholder="Email" />
+          <input name='email' type="email" className="input" placeholder="Your Email" />
           <label className="label">Photo URL</label>
           <input name='photo' type="text" className="input" placeholder="Your Photo" />
           <label className="label">Password</label>

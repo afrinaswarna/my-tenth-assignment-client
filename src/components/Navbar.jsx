@@ -28,11 +28,11 @@ const Navbar = () => {
         
                 <div className="">
                 <ul className="flex gap-4 text-sm font-semibold">
-                    <li><NavLink className='/'>Home</NavLink></li>
-                    <li><NavLink className='/allProperties'>All Properties</NavLink></li>
-                    <li><NavLink className='/addProperties'>Add Properties</NavLink></li>
-                    <li><NavLink className='/myProperty'>My Properties</NavLink></li>
-                    <li><NavLink className='/myReviews'>My Reviews</NavLink></li>
+                    <li><NavLink to='/'>Home</NavLink></li>
+                    <li><NavLink to='/allProperties'>All Properties</NavLink></li>
+                    <li><NavLink to='/addProperties'>Add Properties</NavLink></li>
+                    <li><NavLink to='/myProperty'>My Properties</NavLink></li>
+                    <li><NavLink to='/myReviews'>My Reviews</NavLink></li>
                 </ul>
                 </div>
                 <div className="flex items-center gap-2">

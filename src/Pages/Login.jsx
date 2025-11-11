@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signInUser } = use(AuthContext);
+  const {signInUser } = use(AuthContext);
   const handleUserLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;

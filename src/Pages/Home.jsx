@@ -1,11 +1,13 @@
 import React from 'react';
+import FeaturedRealEstates from '../components/FeaturedRealEstates';
 
 
-
+const featuredRealEstatePromise = fetch('http://localhost:3000/latest-properties')
+.then(res=>res.json())
 const Home = () => {
     return (
         <div>
-           this is home 
+          <FeaturedRealEstates featuredRealEstatePromise={featuredRealEstatePromise}></FeaturedRealEstates>
         </div>
     );
 };

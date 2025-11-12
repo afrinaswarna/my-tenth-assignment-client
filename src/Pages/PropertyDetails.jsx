@@ -1,12 +1,20 @@
-import React from "react";
-import { FaLocationArrow } from "react-icons/fa";
+import React, { use, useState } from "react";
+import { FaLocationArrow, FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router";
+import { AuthContext } from "../context/AuthContext";
+import Rating from "react-rating";
 
 const PropertyDetails = () => {
   const data = useLoaderData();
+  const {setLoading} = use(AuthContext)
+  const [rating, setRating] = useState(3);
+  
+  setLoading(false)
   console.log(data);
+
+   
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 pb-20">
       <div className="w-11/12 mx-auto py-10">
         {/* detail section */}
         <div>
@@ -61,6 +69,11 @@ const PropertyDetails = () => {
         <td>{data.location}</td>
         
       </tr>
+      <tr>
+        <th>Description</th>
+        <td>{data.short_description}</td>
+        
+      </tr>
       
       <tr>
         <th>Price</th>
@@ -80,7 +93,22 @@ const PropertyDetails = () => {
         </div>
       </div>
       {/* review section */}
-      <div></div>
+      <div>
+        <h2 className="font-bold text-2xl text-center mb-10">Ratings and Reviews</h2>
+       <div className="w-[500px] mx-auto  bg-white shadow-lg rounded-lg p-10">
+         <form className="flex flex-col">
+            <Rating
+              style={{ maxWidth: 180 }}
+               value={rating}
+              onChange={setRating}
+            />
+          <textarea name="" id="" cols="20" rows="5" className="border p-2" placeholder="Write your review.."></textarea>
+          <button className="btn-primary">Submit Review</button>
+        </form>
+         
+       </div>
+
+      </div>
     </div>
   );
 };

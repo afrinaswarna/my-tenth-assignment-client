@@ -16,7 +16,7 @@ const SingleFeaturedRealEstateCard = ({singleEstate}) => {
         <h2 className="font-bold text-xl">
       {singleEstate.property_name}</h2>
       {
-        singleEstate.property_status ==='Available'?<><div className="badge badge-success">Available</div></>:singleEstate.property_status ==='Rented'?<><div className="badge badge-secondary">Rented</div></>:<><div className="badge badge-warning">Sold</div></>
+        singleEstate.property_status ==='Sold'?<><div className="badge badge-warning">Sold</div></>:singleEstate.property_status ==='Rented'?<><div className="badge badge-secondary">Rented</div></>:<><div className="badge badge-success">Available</div></>
 
       } 
       

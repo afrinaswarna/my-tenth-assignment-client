@@ -1,23 +1,38 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use} from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const {signInUser } = use(AuthContext);
+  const { signInUser } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
   const handleUserLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+
+    const regEx = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!regEx.test(password)) {
+      toast.error(
+        "Password must be at least 6 characters and mush have an uppercase letter and a lowercase letter"
+      );
+      return;
+    }
     signInUser(email, password)
       .then((result) => {
         console.log(result);
         toast.success("you successfully logged in");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((e) => {
         toast.error(e.message);
       });
   };
+
+ 
   return (
     <div className="hero  min-h-screen ">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -30,15 +45,18 @@ const Login = () => {
                   name="email"
                   type="email"
                   className="input"
+                  
                   placeholder="Email"
                 />
                 <label className="label">Password</label>
                 <input
                   name="password"
                   type="password"
+                  
                   className="input"
                   placeholder="Password"
                 />
+               
 
                 <button className="w-full py-3 font-semibold text-white rounded-lg bg-[#4A89F7] hover:bg-[#3a75e2] transition duration-300 ease-in-out mt-4">
                   Login
@@ -77,7 +95,7 @@ const Login = () => {
                 <div className="pt-2 text-center text-sm text-gray-500">
                   Don't have an account?
                   <Link
-                    href="/register"
+                    to="/register"
                     className="text-[#4285F4] hover:underline ml-1"
                   >
                     Register Now

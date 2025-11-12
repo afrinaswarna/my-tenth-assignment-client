@@ -6,6 +6,8 @@ import Register from "../Pages/Register";
 import AllProperties from "../Pages/allProperties";
 import Login from "../Pages/login";
 import PropertyDetails from "../Pages/PropertyDetails";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import AddProperty from "../Pages/AddProperty";
 
 export const routes = createBrowserRouter([
   {
@@ -23,7 +25,12 @@ export const routes = createBrowserRouter([
       {
         path:'/propertyDetails/:id',
         loader:({params})=>fetch(`http://localhost:3000/properties/${params.id}`),
-        Component:PropertyDetails
+        element:<PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>
+
+      },
+      {
+        path:'/addProperties',
+        element:<PrivateRoute><AddProperty></AddProperty></PrivateRoute>
 
       },
       {

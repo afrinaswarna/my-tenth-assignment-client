@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
 import { toast } from 'react-toastify';
@@ -7,17 +7,30 @@ import { toast } from 'react-toastify';
 const Register = () => {
 
   const {createUser} = use(AuthContext)
+  const navigate = useNavigate()
+  
+  
   const handleUserSignUp=(e)=>{
+
+
     e.preventDefault()
     const name = e.target.name.value
     const email = e.target.email.value
     const photo = e.target.photo.value
     const password = e.target.password.value
     console.log(name,email,photo,password)
+    const regEx = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if(!regEx.test(password)){
+      toast.error('Password must be at least 6 characters and mush have an uppercase letter and a lowercase letter')
+      return
+
+    }
     createUser(email,password)
     .then(result=>{
       console.log(result)
       toast.success('you successfully signup')
+      navigate('/')
 
     })
     .catch(e=>{
@@ -60,6 +73,7 @@ const Register = () => {
                             Login
                         </Link>
                     </div>
+                     
         </fieldset>
      </form>
       </div>

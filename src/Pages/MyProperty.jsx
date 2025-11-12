@@ -1,5 +1,3 @@
-
-
 // import React, { use, useEffect, useRef, useState } from "react";
 // import { AuthContext } from "../context/AuthContext";
 // import { Link } from "react-router";
@@ -44,12 +42,11 @@
 //                                 icon: "success"
 //                             });
 
-//                             // 
+//                             //
 //                             const remainingProperties = myProperty.filter(property => property._id !== id);
 //                             setMyProperty(remainingProperties)
 //                         }
 //                     })
-
 
 //             }
 //         });
@@ -277,16 +274,16 @@ import Swal from "sweetalert2";
 const MyProperty = () => {
   // 1. Get user from AuthContext
   const { user } = use(AuthContext);
-  
+
   // 2. State to store the user's properties
   const [myProperty, setMyProperty] = useState([]);
-  
+
   // 3. State to hold the data of the property currently being edited (Crucial for the form)
   const [formData, setFormData] = useState({});
-  
+
   // 4. Ref for the Update Modal (using <dialog> requires a ref)
   const updateModalRef = useRef(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // --- Data Fetching Effect ---
   useEffect(() => {
@@ -301,16 +298,16 @@ const MyProperty = () => {
   }, [user?.email]);
 
   // --- Helper function to re-fetch/refresh properties (used after update/delete) ---
-//   const refreshProperties = () => {
-//     if (user?.email) {
-//       fetch(`http://localhost:3000/properties?email=${user.email}`)
-//         .then((res) => res.json())
-//         .then((data) => {
-//           setMyProperty(data);
-//         })
-//         .catch((error) => console.error("Error fetching properties:", error));
-//     }
-//   };
+  //   const refreshProperties = () => {
+  //     if (user?.email) {
+  //       fetch(`http://localhost:3000/properties?email=${user.email}`)
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           setMyProperty(data);
+  //         })
+  //         .catch((error) => console.error("Error fetching properties:", error));
+  //     }
+  //   };
 
   // --- Form Change Handler ---
   const handleChange = (e) => {
@@ -339,7 +336,7 @@ const MyProperty = () => {
           .then((res) => res.json())
           .then((data) => {
             // Your backend should return `{ deletedCount: 1 }` or similar for success
-            if (data.deletedCount > 0 || data.deletedCount === undefined) { 
+            if (data.deletedCount > 0 || data.deletedCount === undefined) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your property has been deleted.",
@@ -347,7 +344,9 @@ const MyProperty = () => {
               });
 
               // Update the state directly without a full re-fetch for better performance
-              const remainingProperties = myProperty.filter((property) => property._id !== id);
+              const remainingProperties = myProperty.filter(
+                (property) => property._id !== id
+              );
               setMyProperty(remainingProperties);
             }
           })
@@ -360,7 +359,7 @@ const MyProperty = () => {
   };
 
   // --- Update Modal Handlers ---
-  
+
   // Opens the modal and pre-fills the form with the selected property's data
   const handleUpdateModal = (property) => {
     setFormData(property); // Set the entire property object to formData
@@ -376,7 +375,7 @@ const MyProperty = () => {
   // --- Update Submit Handler ---
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
-    
+
     const idToUpdate = formData._id; // Get ID from the formData state
 
     fetch(`http://localhost:3000/properties/${idToUpdate}`, {
@@ -389,19 +388,25 @@ const MyProperty = () => {
         // Your backend returns an object with modifiedCount
         if (data.modifiedCount > 0) {
           Swal.fire("Success!", "Property updated successfully.", "success");
-          
+
           // Update the property list in state with the new data
-          setMyProperty(prevProperties => prevProperties.map(p => 
-            p._id === idToUpdate ? {...p, ...formData} : p
-          ));
-          navigate(`/propertyDetails/${idToUpdate}`)
+          setMyProperty((prevProperties) =>
+            prevProperties.map((p) =>
+              p._id === idToUpdate ? { ...p, ...formData } : p
+            )
+          );
+          navigate(`/propertyDetails/${idToUpdate}`);
 
           handleCloseModal(); // Close the modal
         } else if (data.modifiedCount === 0) {
-          Swal.fire("No changes made", "The data you submitted was the same as the existing data.", "info");
+          Swal.fire(
+            "No changes made",
+            "The data you submitted was the same as the existing data.",
+            "info"
+          );
           handleCloseModal(); // Still close the modal
         } else {
-            Swal.fire("Update Failed", "Could not update the property.", "error");
+          Swal.fire("Update Failed", "Could not update the property.", "error");
         }
       })
       .catch((err) => {
@@ -416,7 +421,6 @@ const MyProperty = () => {
         My Properties ({myProperty.length})
       </h2>
 
-      {/* --- Property List Display --- */}
       {myProperty.length === 0 ? (
         <p className="text-gray-600">You haven’t added any properties yet.</p>
       ) : (
@@ -449,7 +453,6 @@ const MyProperty = () => {
                 </p>
 
                 <div className="flex justify-between mt-4">
-                  {/* NOTE: Changed <Link> import to 'react-router-dom' convention */}
                   <Link
                     to={`/propertyDetails/${property._id}`}
                     className="text-blue-600 font-semibold hover:underline"
@@ -480,43 +483,58 @@ const MyProperty = () => {
 
       {/* --- Update Modal (Separate from map for clarity) --- */}
       {/* We only render the modal once outside the map */}
-      <dialog ref={updateModalRef} className="modal modal-bottom sm:modal-middle">
+      <dialog
+        ref={updateModalRef}
+        className="modal modal-bottom sm:modal-middle"
+      >
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Update Property Details</h3>
-          <p className="py-4">Modify the fields you wish to update.</p>
-          
-          {/* Check if formData is populated before rendering the form */}
+          <h3 className="font-bold text-lg text-[#E05297]">
+            Update Property Details 🏠
+          </h3>
+
+          <p className="py-4 text-gray-600">
+            Modify the fields you wish to update.
+          </p>
+
           {formData._id && (
-            <form onSubmit={handleUpdateSubmit} className="space-y-3">
-              {/* Form fields populated by formData state */}
+            <form onSubmit={handleUpdateSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold">Property Name</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  Property Name
+                </label>
+
                 <input
                   type="text"
                   name="property_name"
                   value={formData.property_name || ""}
                   onChange={handleChange}
-                  className="w-full border p-2 rounded-md"
+                  className="w-full border p-2 rounded-md focus:border-[#FF6B6B] focus:ring focus:ring-[#FF6B6B] focus:ring-opacity-50 transition duration-150"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold">Description</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  Description
+                </label>
+
                 <textarea
                   name="short_description"
                   value={formData.short_description || ""}
                   onChange={handleChange}
-                  className="w-full border p-2 rounded-md"
+                  className="w-full border p-2 rounded-md focus:border-[#FF6B6B] focus:ring focus:ring-[#FF6B6B] focus:ring-opacity-50 transition duration-150"
                 ></textarea>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold">Category</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  Category
+                </label>
+
                 <select
                   name="category"
                   value={formData.category || ""}
                   onChange={handleChange}
-                  className="w-full border p-2 rounded-md"
+                  className="w-full border p-2 rounded-md focus:border-[#FF6B6B] focus:ring focus:ring-[#FF6B6B] focus:ring-opacity-50 transition duration-150"
                 >
                   <option>Rent</option>
                   <option>Sale</option>
@@ -526,69 +544,88 @@ const MyProperty = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold">Price</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  Price
+                </label>
+
                 <input
                   type="number"
                   name="property_price"
                   value={formData.property_price || 0}
                   onChange={handleChange}
-                  className="w-full border p-2 rounded-md"
+                  className="w-full border p-2 rounded-md focus:border-[#FF6B6B] focus:ring focus:ring-[#FF6B6B] focus:ring-opacity-50 transition duration-150"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold">Location</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  Location
+                </label>
+
                 <input
                   type="text"
                   name="location"
                   value={formData.location || ""}
                   onChange={handleChange}
-                  className="w-full border p-2 rounded-md"
+                  className="w-full border p-2 rounded-md focus:border-[#FF6B6B] focus:ring focus:ring-[#FF6B6B] focus:ring-opacity-50 transition duration-150"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold">Image Link</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  Image Link
+                </label>
+
                 <input
                   type="text"
                   name="image_link"
                   value={formData.image_link || ""}
                   onChange={handleChange}
-                  className="w-full border p-2 rounded-md"
+                  className="w-full border p-2 rounded-md focus:border-[#FF6B6B] focus:ring focus:ring-[#FF6B6B] focus:ring-opacity-50 transition duration-150"
                 />
               </div>
 
               {/* Read-only fields (from the original property data, not formData) */}
+
               <div>
-                <label className="block text-sm font-semibold">User Name</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  User Name
+                </label>
+
                 <input
                   type="text"
                   value={formData.posted_by || ""} // Use formData's existing values
                   readOnly
-                  className="w-full border p-2 rounded-md bg-gray-100"
+                  className="w-full border p-2 rounded-md bg-gray-100 cursor-not-allowed"
                 />
               </div>
+
               <div>
-                <label className="block text-sm font-semibold">User Email</label>
+                <label className="block text-sm font-semibold text-gray-700">
+                  User Email
+                </label>
+
                 <input
                   type="text"
                   value={formData.email || ""} // Use formData's existing values
                   readOnly
-                  className="w-full border p-2 rounded-md bg-gray-100"
+                  className="w-full border p-2 rounded-md bg-gray-100 cursor-not-allowed"
                 />
               </div>
-
-              <div className="flex justify-end gap-3 mt-4">
+              <div className="flex justify-end gap-3 pt-4">
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="bg-gray-300 px-4 py-2 rounded-md hover:bg-gray-400"
+                  className="bg-gray-300 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-400 transition duration-300"
                 >
                   Cancel
                 </button>
+
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                  className="text-white px-4 py-2 rounded-md font-semibold
+ bg-linear-to-r from-[#FF6B6B] via-[#FF8E8E] to-[#E05297] 
+   hover:from-[#E05297] hover:to-[#FF6B6B] transition duration-500 ease-in-out"
                 >
                   Update Property
                 </button>
@@ -599,7 +636,13 @@ const MyProperty = () => {
           <div className="modal-action">
             <form method="dialog">
               {/* This button provides a standard way to close the dialog */}
-              <button className="btn" onClick={handleCloseModal}>Close</button>
+
+              <button
+                className="btn btn-sm bg-gray-200 hover:bg-gray-300"
+                onClick={handleCloseModal}
+              >
+                Close
+              </button>
             </form>
           </div>
         </div>

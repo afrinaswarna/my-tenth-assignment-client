@@ -5,51 +5,52 @@ import { AuthContext } from "../context/AuthContext";
 const Navbar = () => {
   const { user, userLogout } = use(AuthContext);
 
+  
   const baseButtonStyle =
     "font-semibold text-sm px-6 py-2 rounded-lg transition duration-200";
-  const PRIMARY_BLUE_BG = "bg-[#3458A7] text-white hover:bg-[#2c4b8e]";
-  const WHITE_BTN_BG =
-    "bg-white border border-[#3458A7] text-[#3458A7] hover:bg-gray-100";
 
-  // Function to handle NavLink styling (for Home, Properties, etc.)
-  // const getNavLinkClasses = ({ isActive }) =>
-  //     `hover:text-[#3458A7] ${isActive ? 'text-[#3458A7] font-bold border-b-2 border-[#3458A7]' : 'text-gray-700'}`;
+
+  const PINK_GRADIENT_BG = "bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:from-pink-600 hover:to-rose-600";
+  
+  
+  const WHITE_BTN_BG =
+    "bg-white border border-pink-500 text-pink-500 hover:bg-pink-50 border-pink-500"; 
+
+  
+  const getNavLinkClasses = ({ isActive }) =>
+    `hover:text-pink-600 transition duration-200 ${
+      isActive 
+        ? 'text-white ' + PINK_GRADIENT_BG + ' px-3 py-1 rounded-lg' 
+        : 'text-gray-700'
+    }`;
+  
   const handleLogout = () => {
     userLogout();
   };
-  return (
-    <div className="flex items-center justify-between py-4 border-b">
-      <div className="flex items-center ">
-        <img
-          className="size-10"
-          src="https://i.ibb.co.com/m5xz0FmP/home.png"
-          alt=""
-        />
-        <div className="border-l-2 border-gray-400 pl-1">
-          <h2 className="font-bold">HomeNest</h2>
-          <p className="text-xs text-gray-400">Property finding partner</p>
-        </div>
-      </div>
 
-      <div className="">
-        <ul className="flex gap-4 text-sm font-semibold">
+  return (
+    <div className="flex items-center justify-between py-4 w-11/12 mx-auto">
+      
+      <div className="bg-white rounded-lg p-3">
+        <ul className="flex gap-4 text-md font-semibold">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className={getNavLinkClasses}>Home</NavLink>
           </li>
           <li>
-            <NavLink to="/allProperties">All Properties</NavLink>
+            <NavLink to="/allProperties" className={getNavLinkClasses}>All Properties</NavLink>
           </li>
           <li>
-            <NavLink to="/addProperties">Add Properties</NavLink>
+            <NavLink to="/addProperties" className={getNavLinkClasses}>Add Properties</NavLink>
           </li>
           <li>
-            <NavLink to="/myProperties">My Properties</NavLink>
+            <NavLink to="/myProperties" className={getNavLinkClasses}>My Properties</NavLink>
           </li>
           <li>
-            <NavLink to="/myReviews">My Reviews</NavLink>
+            <NavLink to="/myReviews" className={getNavLinkClasses}>My Reviews</NavLink>
           </li>
         </ul>
       </div>
+
       <div>
         {user ? (
           <div className="dropdown dropdown-end">
@@ -89,7 +90,7 @@ const Navbar = () => {
               to="/login"
               className={({ isActive }) =>
                 `${baseButtonStyle} ${
-                  isActive ? PRIMARY_BLUE_BG : WHITE_BTN_BG
+                  isActive ? PINK_GRADIENT_BG : WHITE_BTN_BG
                 }`
               }
             >
@@ -100,7 +101,7 @@ const Navbar = () => {
               to="/register"
               className={({ isActive }) =>
                 `${baseButtonStyle} ${
-                  isActive ? PRIMARY_BLUE_BG : WHITE_BTN_BG
+                  isActive ? PINK_GRADIENT_BG : WHITE_BTN_BG
                 }`
               }
             >

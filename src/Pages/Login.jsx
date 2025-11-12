@@ -2,12 +2,16 @@ import React, { use} from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
 
 const Login = () => {
-  const { signInUser } = use(AuthContext);
+  const { signInUser,setUser } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   
+
+  const googleProvider = new GoogleAuthProvider()
   const handleUserLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -32,7 +36,16 @@ const Login = () => {
       });
   };
 
- 
+ const handleGoogleLogin=()=>{
+      signInWithPopup(auth,googleProvider)
+      .then(res=>{
+       setUser(res.user)
+       toast.success('Google signin successful')
+        navigate(`${location.state ? location.state:'/'}`)
+      }).catch(e=>{
+        toast.error(e.message)
+      })
+    }
   return (
     <div className="hero  min-h-screen ">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -62,7 +75,7 @@ const Login = () => {
                   Login
                 </button>
                 {/* Google */}
-                <button className="btn bg-white text-black border-[#e5e5e5]">
+                <button onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5]">
                   <svg
                     aria-label="Google logo"
                     width="16"

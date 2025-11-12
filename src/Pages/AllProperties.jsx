@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import AllPropertiesCard from "../components/AllPropertiesCard";
 
 const allPropertiesPromise = fetch("http://localhost:3000/properties").then(
   (res) => res.json()
 );
 const AllProperties = () => {
+  const [search, setSearch] = useState("");
   return (
     <div className="text-center my-20 space-y-4">
       <h2 className="font-bold text-2xl ">Our Properties Collection</h2>
@@ -30,13 +31,18 @@ const AllProperties = () => {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" required placeholder="Search properties" />
+            <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)} 
+            type="search" required placeholder="Search properties" />
           </label>
         </div>
         <button className="btn bg-[#4A89F7] join-item">Join</button>
       </div>
       <AllPropertiesCard
         allPropertiesPromise={allPropertiesPromise}
+        search={search}
+        setSearch={setSearch}
       ></AllPropertiesCard>
     </div>
   );

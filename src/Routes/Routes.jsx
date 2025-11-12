@@ -9,6 +9,7 @@ import PropertyDetails from "../Pages/PropertyDetails";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import AddProperty from "../Pages/AddProperty";
 import MyProperty from "../Pages/MyProperty";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const routes = createBrowserRouter([
   {
@@ -49,4 +50,8 @@ export const routes = createBrowserRouter([
       },
     ],
   },
+   {
+        path:'*',
+        element:<ErrorPage></ErrorPage>
+    }
 ]);

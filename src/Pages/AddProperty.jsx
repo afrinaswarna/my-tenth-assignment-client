@@ -29,7 +29,8 @@ const AddProperty = () => {
     image_link:photo,
     category,
     posted_date:postedDate,
-    posted_by: user?.email, // or user.displayName
+    posted_by: user?.displayName ,
+    email:user?.email
   };
 fetch('http://localhost:3000/properties',{
     method:'POST',

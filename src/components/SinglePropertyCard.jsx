@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const SinglePropertyCard = ({property}) => {
+  
     return (
 <div className="card bg-base-100  shadow-sm">
       <figure>
@@ -26,7 +28,7 @@ const SinglePropertyCard = ({property}) => {
        </div>
        <div className='flex justify-between items-center'>
         <p className='text-gray-500 text-sm font-medium'> <span className='font-bold text-gray-600'>Location:</span>{property.location}</p>
-        <button className='btn-primary py-2 px-4 rounded-lg shadow-2xl text-sm text-white font-bold'>See Details</button>
+        <Link to={`/propertyDetails/${property._id}`} className='btn-primary py-2 px-4 rounded-lg shadow-2xl text-sm text-white font-bold'>See Details</Link>
        </div>
     </div>
     

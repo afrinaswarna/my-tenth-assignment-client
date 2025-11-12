@@ -13,7 +13,7 @@ const RootLayout = () => {
 
             </header>
             
-            <main className='flex-1 w-11/12 mx-auto'>
+            <main className='flex-1'>
                <Outlet></Outlet>
             </main>
             <Footer></Footer>

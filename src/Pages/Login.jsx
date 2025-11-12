@@ -19,7 +19,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero bg-[#8B9ABC] min-h-screen ">
+    <div className="hero  min-h-screen ">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 border-10 border-gray-300">
           <div className="card-body shadow-lg rounded-lg">

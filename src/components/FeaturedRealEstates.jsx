@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import SingleRealEstateCard from './SingleRealEstateCard';
+import SingleRealEstateCard from './SingleFeaturedRealEstateCard';
 
 const FeaturedRealEstates = ({featuredRealEstatePromise}) => {
     const realEstates = use(featuredRealEstatePromise)

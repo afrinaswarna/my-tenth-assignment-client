@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-const SingleRealEstateCard = ({singleEstate}) => {
+const SingleFeaturedRealEstateCard = ({singleEstate}) => {
     console.log(singleEstate)
     return (
         <div className="card bg-base-100  shadow-sm">
@@ -27,7 +28,7 @@ const SingleRealEstateCard = ({singleEstate}) => {
        </div>
        <div className='flex justify-between items-center'>
         <p className='text-gray-500 text-sm font-medium'> <span className='font-bold text-gray-600'>Location:</span>{singleEstate.location}</p>
-        <button className='btn-primary py-2 px-4 rounded-lg shadow-2xl text-sm text-white font-bold'>View Details</button>
+        <Link to={`/propertyDetails/${singleEstate._id}`} className='btn-primary py-2 px-4 rounded-lg shadow-2xl text-sm text-white font-bold'>View Details</Link>
        </div>
     </div>
     
@@ -36,4 +37,4 @@ const SingleRealEstateCard = ({singleEstate}) => {
     );
 };
 
-export default SingleRealEstateCard;
+export default SingleFeaturedRealEstateCard;

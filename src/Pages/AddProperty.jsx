@@ -19,15 +19,15 @@ const AddProperty = () => {
     const photo = e.target.photo.value;
     const postedDate = new Date().toISOString();
 
-    console.log(
-      propertyName,
-      description,
-      price,
-      location,
-      photo,
-      category,
-      postedDate
-    );
+    // console.log(
+    //   propertyName,
+    //   description,
+    //   price,
+    //   location,
+    //   photo,
+    //   category,
+    //   postedDate
+    // );
     const newProperty = {
       property_name: propertyName,
       short_description: description,
@@ -58,7 +58,7 @@ const AddProperty = () => {
   };
   return (
     
-    <div className="bg-gray-50 py-10 min-h-screen flex items-center justify-center">
+    <div className="py-10 min-h-screen flex items-center justify-center">
      
       <div className="w-[500px] bg-white mx-auto rounded-xl shadow-2xl p-8 border border-gray-100">
         <h2 className="text-3xl font-bold text-center text-[#E05297]">

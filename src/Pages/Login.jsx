@@ -48,8 +48,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="hero min-h-screen w-11/12 mx-auto my-10">
+      <div className="hero-content flex-col md:flex-row-reverse">
        
         <div className="card bg-base-100 w-full max-w-sm shrink-0 border-gray-300">
           <div className="card-body shadow-2xl rounded-xl p-8">
@@ -134,7 +134,7 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div className="text-center lg:text-left w-[500px]">
+        <div className="text-center lg:text-left md:w-[500px]">
           <h1 className="text-5xl font-bold">Welcome Back!</h1>
           <p className="py-6 max-w-md">Sign in to access your personalized experience.</p>
         </div>

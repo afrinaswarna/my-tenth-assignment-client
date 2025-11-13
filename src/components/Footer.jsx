@@ -5,7 +5,7 @@ const Footer = () => {
     const PINK_GRADIENT_TEXT = "bg-gradient-to-r from-pink-400 to-rose-400 text-transparent bg-clip-text";
     const PINK_BORDER = "border-pink-400"; 
     return (
-        <div className='bg-rose-700 text-white pt-12 pb-8'>
+        <div className='bg-rose-700 text-white '>
        <div className='w-11/12 mx-auto'>
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-rose-700 pb-10'>
 

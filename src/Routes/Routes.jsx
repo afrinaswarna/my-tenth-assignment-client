@@ -10,6 +10,7 @@ import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import AddProperty from "../Pages/AddProperty";
 import MyProperty from "../Pages/MyProperty";
 import ErrorPage from "../Pages/ErrorPage";
+import MyRatings from "../Pages/MyRatings";
 
 export const routes = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ export const routes = createBrowserRouter([
       {
         path:'/myProperties',
         element:<PrivateRoute><MyProperty></MyProperty></PrivateRoute>
+
+      },
+      {
+        path:'/myRatings',
+        element:<PrivateRoute><MyRatings></MyRatings></PrivateRoute>
 
       },
       {

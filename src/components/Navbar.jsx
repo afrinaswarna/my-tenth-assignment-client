@@ -39,10 +39,10 @@ const handleTheme=(checked)=>{
 setTheme(checked?"dark":"light")
 }
   return (
-    <div className="flex items-center justify-between py-4 w-11/12 mx-auto">
+    <div className="flex flex-col md:flex-row items-center justify-between py-4 w-11/12 mx-auto gap-4">
       
       <div className="bg-white rounded-lg p-3">
-        <ul className="flex gap-4 text-md font-semibold">
+        <ul className="flex flex-wrap gap-4 items-center justify-center text-md font-semibold">
           <li>
             <NavLink to="/" className={getNavLinkClasses}>Home</NavLink>
           </li>
@@ -56,7 +56,7 @@ setTheme(checked?"dark":"light")
             <NavLink to="/myProperties" className={getNavLinkClasses}>My Properties</NavLink>
           </li>
           <li>
-            <NavLink to="/myReviews" className={getNavLinkClasses}>My Reviews</NavLink>
+            <NavLink to="/myRatings" className={getNavLinkClasses}>My Ratings</NavLink>
           </li>
         </ul>
       </div>

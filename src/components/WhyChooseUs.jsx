@@ -2,8 +2,7 @@ import React from 'react';
 import { FaHeart, FaShieldAlt, FaChartLine, FaRegCalendarCheck } from 'react-icons/fa'; 
 
 const WhyChooseUs = () => {
-    
-    // Define the style variables for consistency
+
     
     const PINK_ACCENT = "text-pink-600";
     const CARD_SHADOW = 

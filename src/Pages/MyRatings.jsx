@@ -1,18 +1,3 @@
-// import React from 'react';
-// import MyRatingsComponent from '../components/MyRatingsComponent';
-
-
-// const ratingsDataPromise = fetch('http://localhost:3000/reviews').then(res=>res.json())
-// const MyRatings = () => {
-//     return (
-//         <div>
-//             <MyRatingsComponent ratingsDataPromise={ratingsDataPromise}></MyRatingsComponent>
-//         </div>
-//     );
-// };
-
-// export default MyRatings;
-
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import MyRatingsCard from "../components/MyRatingsCard";

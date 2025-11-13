@@ -2,7 +2,7 @@ import React, { use, useState } from "react";
 import { FaLocationArrow, FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-// Assuming the Rating component needs imports for full/empty stars for theming
+
 import Rating from "react-rating";
 import Swal from "sweetalert2";
 

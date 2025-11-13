@@ -77,7 +77,7 @@ const MyRatingsCard = ({ singleRatingData }) => {
                     </div>
                     <div>
                      
-                        <h4 className="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-rose-500">
+                        <h4 className="text-xl font-extrabold bg-clip-text text-transparent bg-linear-to-r from-pink-500 to-rose-500">
                             {property_name}
                         </h4>
                         <p className="text-sm text-gray-600">Property Reviewed</p>

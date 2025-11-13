@@ -1,9 +1,6 @@
 import React from 'react';
 
-// You would typically import the components and hooks from your chosen library here.
-// Example for a hypothetical library structure:
-// import { Swiper, SwiperSlide } from 'swiper/react'; 
-// import 'swiper/css';
+
 
 const HeroSlider = () => {
     

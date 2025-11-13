@@ -1,24 +1,18 @@
-
 import React, { use, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router"; 
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MyProperty = () => {
- 
   const { user } = use(AuthContext);
 
-  
   const [myProperty, setMyProperty] = useState([]);
 
- 
   const [formData, setFormData] = useState({});
 
- 
   const updateModalRef = useRef(null);
   const navigate = useNavigate();
 
- 
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:3000/properties?email=${user.email}`)
@@ -30,17 +24,14 @@ const MyProperty = () => {
     }
   }, [user?.email]);
 
-  
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: name === "property_price" ? Number(value) : value, 
+      [name]: name === "property_price" ? Number(value) : value,
     }));
   };
 
- 
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -57,7 +48,6 @@ const MyProperty = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-           
             if (data.deletedCount > 0 || data.deletedCount === undefined) {
               Swal.fire({
                 title: "Deleted!",
@@ -65,7 +55,6 @@ const MyProperty = () => {
                 icon: "success",
               });
 
-             
               const remainingProperties = myProperty.filter(
                 (property) => property._id !== id
               );
@@ -80,13 +69,11 @@ const MyProperty = () => {
     });
   };
 
-  
   const handleUpdateModal = (property) => {
-    setFormData(property); 
+    setFormData(property);
     updateModalRef.current.showModal();
   };
 
- 
   const handleCloseModal = () => {
     updateModalRef.current.close();
     setFormData({});
@@ -104,11 +91,9 @@ const MyProperty = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-      
         if (data.modifiedCount > 0) {
           Swal.fire("Success!", "Property updated successfully.", "success");
 
-         
           setMyProperty((prevProperties) =>
             prevProperties.map((p) =>
               p._id === idToUpdate ? { ...p, ...formData } : p
@@ -116,7 +101,7 @@ const MyProperty = () => {
           );
           navigate(`/propertyDetails/${idToUpdate}`);
 
-          handleCloseModal(); 
+          handleCloseModal();
         } else if (data.modifiedCount === 0) {
           Swal.fire(
             "No changes made",
@@ -181,7 +166,7 @@ const MyProperty = () => {
 
                   <div className="flex gap-2">
                     <button
-                      onClick={() => handleUpdateModal(property)} 
+                      onClick={() => handleUpdateModal(property)}
                       className="bg-yellow-500 text-white px-3 py-1 rounded-md text-sm hover:bg-yellow-600"
                     >
                       Update
@@ -200,7 +185,6 @@ const MyProperty = () => {
         </div>
       )}
 
-     
       <dialog
         ref={updateModalRef}
         className="modal modal-bottom sm:modal-middle"
@@ -303,7 +287,6 @@ const MyProperty = () => {
                 />
               </div>
 
-             
               <div>
                 <label className="block text-sm font-semibold text-gray-700">
                   User Name
@@ -311,7 +294,7 @@ const MyProperty = () => {
 
                 <input
                   type="text"
-                  value={formData.posted_by || ""} 
+                  value={formData.posted_by || ""}
                   readOnly
                   className="w-full border p-2 rounded-md  cursor-not-allowed"
                 />
@@ -324,7 +307,7 @@ const MyProperty = () => {
 
                 <input
                   type="text"
-                  value={formData.email || ""} 
+                  value={formData.email || ""}
                   readOnly
                   className="w-full border p-2 rounded-md  cursor-not-allowed"
                 />
@@ -352,8 +335,6 @@ const MyProperty = () => {
 
           <div className="modal-action">
             <form method="dialog">
-            
-
               <button
                 className="btn btn-sm bg-gray-200 hover:bg-gray-300"
                 onClick={handleCloseModal}

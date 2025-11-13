@@ -68,7 +68,7 @@ const HeroSlider = () => {
                                 
                                 <a 
                                     href={slide.link} 
-                                    className={`inline-block font-semibold text-base md:text-lg px-8 py-3 rounded-lg transition duration-300 shadow-xl ${PINK_GRADIENT_BG} text-white`}
+                                    className={`inline-block font-semibold text-base md:text-lg px-8 py-3 rounded-lg transition duration-300 shadow-xl ${PINK_GRADIENT_BG}`}
                                 >
                                     {slide.buttonText}
                                 </a>

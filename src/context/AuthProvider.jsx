@@ -25,7 +25,7 @@ const AuthProvider = ({children}) => {
         unSubscribe()
     }
   },[])
-console.log(user)
+// console.log(user)
 
 const updateUser = (updatedData) =>{
     return updateProfile(auth.currentUser,updatedData)

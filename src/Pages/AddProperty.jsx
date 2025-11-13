@@ -193,7 +193,7 @@ const AddProperty = () => {
             <button
               type="submit"
               className="w-full py-3 font-semibold text-white rounded-lg 
-              bg-gradient-to-r from-[#FF6B6B] via-[#FF8E8E] to-[#E05297] 
+              bg-linear-to-r from-[#FF6B6B] via-[#FF8E8E] to-[#E05297] 
               hover:from-[#E05297] hover:to-[#FF6B6B] transition duration-500 ease-in-out mt-6"
             >
               Add Property

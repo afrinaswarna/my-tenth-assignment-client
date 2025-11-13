@@ -36,7 +36,7 @@ const MyProperty = () => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: name === "property_price" ? Number(value) : value, // Convert price to number
+      [name]: name === "property_price" ? Number(value) : value, 
     }));
   };
 

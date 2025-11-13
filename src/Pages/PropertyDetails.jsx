@@ -33,6 +33,7 @@ const PropertyDetails = () => {
       review_text: reviewText,
       review_date: new Date().toISOString(),
       property_thumbnail: data.image_link, 
+      reviewer_email: user?.email
     };
 
     try {

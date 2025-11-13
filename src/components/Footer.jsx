@@ -22,8 +22,8 @@ const Footer = () => {
                                 alt="HomeNest Logo"
                             />
                             <div>
-                                <h2 className="text-2xl font-bold">
-                                    <span className={PINK_GRADIENT_TEXT}>HomeNest</span>
+                                <h2 className="text-2xl font-bold text-white">
+                                    HomeNest
                                 </h2>
                                 <p className="text-xs text-rose-300">Property finding partner</p>
                             </div>
@@ -35,8 +35,8 @@ const Footer = () => {
 
                     
                     <div>
-                        <h3 className={`font-semibold text-lg mb-4 border-b ${PINK_BORDER} inline-block`}>
-                            <span className={PINK_GRADIENT_TEXT}>Contact Us</span>
+                        <h3 className='font-semibold text-lg mb-4 border-b inline-block'>
+                            Contact Us
                         </h3>
                         <ul className='space-y-2 text-sm text-rose-200'>
                             <li>
@@ -46,15 +46,15 @@ const Footer = () => {
                                 <span className='font-medium'>Phone:</span> (123) 456-7890
                             </li>
                             <li>
-                                <span className='font-medium'>Email:</span> info@homenest.com
+                                <span className='font-medium'>Email:</span> home@nest.com
                             </li>
                         </ul>
                     </div>
 
                   
                     <div>
-                        <h3 className={`font-semibold text-lg mb-4 border-b ${PINK_BORDER} inline-block`}>
-                            <span className={PINK_GRADIENT_TEXT}>Terms and Conditions,</span>
+                        <h3 className='font-semibold text-lg mb-4 border-b inline-block6'>
+                            Terms and Conditions,
                         </h3>
                         <ul className='space-y-2 text-sm'>
                             <li>
@@ -82,8 +82,8 @@ const Footer = () => {
 
                    
                     <div>
-                        <h3 className={`font-semibold text-lg mb-4 border-b ${PINK_BORDER} inline-block`}>
-                            <span className={PINK_GRADIENT_TEXT}>Social Media Links</span>
+                        <h3 className='font-semibold text-lg mb-4 border-b inline-block6'>
+                        Social Media Links
                         </h3>
                         
                         <div className='flex flex-row gap-2 '> 

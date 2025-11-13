@@ -6,7 +6,7 @@ const HeroSlider = () => {
     
     
     const PINK_GRADIENT_BG = "bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600";
-    const WHITE_BTN_BG = "bg-white border border-pink-500 text-pink-500 hover:bg-pink-50";
+   
 
     const slides = [
         {
@@ -61,7 +61,7 @@ const HeroSlider = () => {
                                 <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
                                     {slide.title}
                                 </h1>
-                                <p className="text-lg md:text-xl mb-8 font-medium">
+                                <p className="text-sm md:text-xl mb-8 font-medium">
                                     {slide.subtitle}
                                 </p>
                                 

@@ -65,8 +65,8 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen my-10">
-      <div className="hero-content flex-col lg:flex-row-reverse w-[800px]">
+    <div className="hero min-h-screen my-10 w-11/12 mx-auto">
+      <div className="hero-content flex-col lg:flex-row-reverse md:w-[800px]">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Join Us Today!</h1>
 

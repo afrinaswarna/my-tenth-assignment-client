@@ -1,16 +1,19 @@
-# React + Vite
+# HomeNest
+**Property finding partner**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+- [live link](https://my-tenth-assignment-homenest.netlify.app/) 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## My website features
+
+*We offer a comprehensive and diverse database of Featured Real Estates that are meticulously verified for authenticity and quality*
+*Users can view and post detailed ratings and reviews for properties, complete with star rankings, reviewer names, and dates, giving future users valuable, honest insights into each listing.*
+
+*The "Meet Our Expert Agents" section highlights the human element of our service, backed by genuine client feedback in the Testimonials section, ensuring you receive informed guidance from trusted specialists.*
+
+*We offer a comprehensive and diverse database of Featured Real Estates that are meticulously verified for authenticity and quality.*
+*Whether you're looking to Rent or Buy, every listing is presented with accurate details, ensuring you only browse reliable properties.*

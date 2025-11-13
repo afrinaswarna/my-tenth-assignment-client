@@ -15,7 +15,9 @@ const MyProperty = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/properties?email=${user.email}`)
+      fetch(
+        `https://my-tenth-assignment-server-alpha.vercel.app/properties?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setMyProperty(data);
@@ -43,9 +45,12 @@ const MyProperty = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/properties/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://my-tenth-assignment-server-alpha.vercel.app/properties/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0 || data.deletedCount === undefined) {
@@ -84,11 +89,14 @@ const MyProperty = () => {
 
     const idToUpdate = formData._id;
 
-    fetch(`http://localhost:3000/properties/${idToUpdate}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      `https://my-tenth-assignment-server-alpha.vercel.app/properties/${idToUpdate}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

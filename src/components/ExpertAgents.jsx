@@ -31,8 +31,8 @@ const ExpertAgents = () => {
     return (
         <section className='py-16'>
             <div className='text-center mb-12'>
-                <h2 className={`font-extrabold text-4xl md:text-5xl text-gray-800 ${PINK_GRADIENT_TEXT}`}>
-                    Meet Our Expert Agents
+                <h2 className={`font-extrabold text-3xl md:text-5xl text-gray-800 ${PINK_GRADIENT_TEXT}`}>
+                    Meet Our Experts 
                 </h2>
                 <p className='text-gray-600 mt-3 max-w-2xl mx-auto'>
                     Highly dedicated professionals ready to guide you through your property journey.

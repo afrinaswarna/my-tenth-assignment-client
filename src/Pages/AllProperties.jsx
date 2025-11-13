@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import AllPropertiesCard from "../components/AllPropertiesCard";
 import { FaSearch } from "react-icons/fa"; 
 
-const allPropertiesPromise = fetch("http://localhost:3000/properties").then(
+const allPropertiesPromise = fetch("https://my-tenth-assignment-server-alpha.vercel.app/properties").then(
     (res) => res.json()
 );
 

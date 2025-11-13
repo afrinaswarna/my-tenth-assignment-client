@@ -9,7 +9,9 @@ const MyRatings = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/user-reviews?email=${user.email}`)
+      fetch(
+        `https://my-tenth-assignment-server-alpha.vercel.app/user-reviews?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setRatings(data);

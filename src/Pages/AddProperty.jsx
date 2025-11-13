@@ -1,4 +1,3 @@
-
 import React, { use, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
@@ -39,7 +38,7 @@ const AddProperty = () => {
       posted_by: user?.displayName,
       email: user?.email,
     };
-    fetch("http://localhost:3000/properties", {
+    fetch("https://my-tenth-assignment-server-alpha.vercel.app/properties", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,7 +49,7 @@ const AddProperty = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Property added successfully");
-            e.target.reset();
+          e.target.reset();
         }
       })
       .catch((e) => {
@@ -58,9 +57,7 @@ const AddProperty = () => {
       });
   };
   return (
-    
     <div className="py-10 min-h-screen flex items-center justify-center">
-     
       <div className="w-[500px] bg-white mx-auto rounded-xl shadow-2xl p-8 border border-gray-100">
         <h2 className="text-3xl font-bold text-center text-[#E05297]">
           Add New Property
@@ -73,7 +70,6 @@ const AddProperty = () => {
 
         <form onSubmit={handleAddProperty}>
           <fieldset className="space-y-4">
-            
             <div>
               <label className="label text-gray-700 font-semibold mb-1 block">
                 Property Name
@@ -160,7 +156,6 @@ const AddProperty = () => {
               />
             </div>
 
-           
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="label text-gray-700 font-semibold mb-1 block">

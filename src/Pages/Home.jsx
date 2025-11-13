@@ -1,27 +1,28 @@
-import React from 'react';
-import FeaturedRealEstates from '../components/FeaturedRealEstates';
-import WhyChooseUs from '../components/WhyChooseUs';
-import ExpertAgents from '../components/ExpertAgents';
-import Testimonials from '../components/Testimonials';
-import Banner from '../components/Banner';
+import React from "react";
+import FeaturedRealEstates from "../components/FeaturedRealEstates";
+import WhyChooseUs from "../components/WhyChooseUs";
+import ExpertAgents from "../components/ExpertAgents";
+import Testimonials from "../components/Testimonials";
+import Banner from "../components/Banner";
 
-
-const featuredRealEstatePromise = fetch('http://localhost:3000/latest-properties')
-.then(res=>res.json())
+const featuredRealEstatePromise = fetch(
+  "https://my-tenth-assignment-server-alpha.vercel.app/latest-properties"
+).then((res) => res.json());
 const Home = () => {
-    return (
-        <div className='w-11/12 mx-auto py-20 space-y-20'>
+  return (
+    <div className="w-11/12 mx-auto py-20 space-y-20">
+      <Banner></Banner>
+      <FeaturedRealEstates
+        featuredRealEstatePromise={featuredRealEstatePromise}
+      ></FeaturedRealEstates>
 
-          <Banner></Banner>
-          <FeaturedRealEstates featuredRealEstatePromise={featuredRealEstatePromise}></FeaturedRealEstates>
+      <WhyChooseUs></WhyChooseUs>
 
-          <WhyChooseUs></WhyChooseUs>
-
-          {/* two extra section */}
-          <ExpertAgents></ExpertAgents>
-          <Testimonials></Testimonials>
-        </div>
-    );
+      {/* two extra section */}
+      <ExpertAgents></ExpertAgents>
+      <Testimonials></Testimonials>
+    </div>
+  );
 };
 
 export default Home;

@@ -23,32 +23,47 @@ export const routes = createBrowserRouter([
       },
       {
         path: "allProperties",
-        Component:AllProperties
+        Component: AllProperties,
       },
       {
-        path:'/propertyDetails/:id',
-        loader:({params})=>fetch(`http://localhost:3000/properties/${params.id}`),
-        element:<PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>
-
+        path: "/propertyDetails/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://my-tenth-assignment-server-alpha.vercel.app/properties/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <PropertyDetails></PropertyDetails>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/addProperties',
-        element:<PrivateRoute><AddProperty></AddProperty></PrivateRoute>
-
+        path: "/addProperties",
+        element: (
+          <PrivateRoute>
+            <AddProperty></AddProperty>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/myProperties',
-        element:<PrivateRoute><MyProperty></MyProperty></PrivateRoute>
-
+        path: "/myProperties",
+        element: (
+          <PrivateRoute>
+            <MyProperty></MyProperty>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/myRatings',
-        element:<PrivateRoute><MyRatings></MyRatings></PrivateRoute>
-
+        path: "/myRatings",
+        element: (
+          <PrivateRoute>
+            <MyRatings></MyRatings>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
-        Component:Login
+        Component: Login,
       },
       {
         path: "/register",
@@ -56,8 +71,8 @@ export const routes = createBrowserRouter([
       },
     ],
   },
-   {
-        path:'*',
-        element:<ErrorPage></ErrorPage>
-    }
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);

@@ -25,35 +25,36 @@ const PropertyDetails = () => {
 
     const reviewText = e.target.review.value;
 
-    
     const reviewData = {
       reviewer_name: user?.displayName || "Anonymous",
       property_name: data.property_name,
       star_rating: rating,
       review_text: reviewText,
       review_date: new Date().toISOString(),
-      property_thumbnail: data.image_link, 
-      reviewer_email: user?.email
+      property_thumbnail: data.image_link,
+      reviewer_email: user?.email,
     };
 
     try {
-      const res = await fetch("http://localhost:3000/reviews", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reviewData),
-      });
+      const res = await fetch(
+        "https://my-tenth-assignment-server-alpha.vercel.app/reviews",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(reviewData),
+        }
+      );
 
       if (res.ok) {
         Swal.fire({
           icon: "success",
           title: "Review Submitted!",
           text: "Thanks for sharing your experience.",
-          confirmButtonColor: "#ec4899", 
+          confirmButtonColor: "#ec4899",
         });
 
-       
         e.target.reset();
         setRating(0);
       } else {

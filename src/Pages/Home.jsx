@@ -1,6 +1,8 @@
 import React from 'react';
 import FeaturedRealEstates from '../components/FeaturedRealEstates';
 import WhyChooseUs from '../components/WhyChooseUs';
+import ExpertAgents from '../components/ExpertAgents';
+import Testimonials from '../components/Testimonials';
 
 
 const featuredRealEstatePromise = fetch('http://localhost:3000/latest-properties')
@@ -11,6 +13,10 @@ const Home = () => {
           <FeaturedRealEstates featuredRealEstatePromise={featuredRealEstatePromise}></FeaturedRealEstates>
 
           <WhyChooseUs></WhyChooseUs>
+
+          {/* two extra section */}
+          <ExpertAgents></ExpertAgents>
+          <Testimonials></Testimonials>
         </div>
     );
 };

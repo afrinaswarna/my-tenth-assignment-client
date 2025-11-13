@@ -33,7 +33,7 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <section className='py-16 my-20'>
+        <section className='py-16 my-10'>
             
             <div className='text-center mb-12'>
                 <h3 className={`text-2xl font-bold mb-2 ${PINK_ACCENT}`}>

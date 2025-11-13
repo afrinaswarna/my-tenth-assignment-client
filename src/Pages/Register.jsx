@@ -5,11 +5,12 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
-import { use } from "react";
+import { use, useState } from "react";
 
 const googleProvider = new GoogleAuthProvider();
 const Register = () => {
-  const { createUser, setUser } = use(AuthContext);
+  const { createUser, setUser,updateUser } = use(AuthContext);
+  const [error,setError] = useState('')
   const navigate = useNavigate();
 
   const handleUserSignUp = (e) => {
@@ -18,24 +19,37 @@ const Register = () => {
     const email = e.target.email.value;
     const photo = e.target.photo.value;
     const password = e.target.password.value;
-    console.log(name, email, photo, password);
+   
     const regEx = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
     if (!regEx.test(password)) {
       toast.error(
-        "Password must be at least 6 characters and mush have an uppercase letter and a lowercase letter"
+       error
       );
       return;
     }
-    createUser(email, password)
-      .then((result) => {
-        console.log(result);
-        toast.success("you successfully signup");
-        navigate("/");
+     setError('')
+    
+
+    createUser(email,password)
+    .then(result=>{
+     
+      const user = result.user
+      updateUser({displayName:name,photoURL:photo})
+      .then(()=>{
+        setUser({...user,displayName:name,photoURL:photo})
       })
-      .catch((e) => {
-        toast.error(e.message);
-      });
+      .catch(e=>{
+        toast.error(e.message)
+        setUser(user)
+      })
+      setUser(user)
+      toast.success('Signup successful')
+      navigate('/')
+    })
+    .catch(error=>{
+      toast.error(error.message)
+    })
   };
 
   const handleGoogleSignup = () => {

@@ -68,7 +68,7 @@ const AllProperties = () => {
         <div className="text-center my-20 space-y-6 w-11/12 mx-auto">
             
           
-            <h2 className="font-extrabold text-4xl text-gray-800">
+            <h2 className="font-extrabold text-4xl text-gray-700">
                 Our Exclusive Property Collection
             </h2>
             <p className="text-lg text-gray-500 max-w-xl mx-auto">

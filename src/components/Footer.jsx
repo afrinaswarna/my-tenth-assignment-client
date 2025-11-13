@@ -1,11 +1,14 @@
 import React from 'react';
+import { BsTwitterX } from 'react-icons/bs';
+import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
+import { GoMail } from 'react-icons/go';
 import { Link } from 'react-router';
 
 const Footer = () => {
     const PINK_GRADIENT_TEXT = "bg-gradient-to-r from-pink-400 to-rose-400 text-transparent bg-clip-text";
     const PINK_BORDER = "border-pink-400"; 
     return (
-        <div className='bg-rose-700 text-white '>
+        <div className='bg-rose-700 text-white p-5'>
        <div className='w-11/12 mx-auto'>
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-rose-700 pb-10'>
 
@@ -51,7 +54,7 @@ const Footer = () => {
                   
                     <div>
                         <h3 className={`font-semibold text-lg mb-4 border-b ${PINK_BORDER} inline-block`}>
-                            <span className={PINK_GRADIENT_TEXT}>Legal & Links</span>
+                            <span className={PINK_GRADIENT_TEXT}>Terms and Conditions,</span>
                         </h3>
                         <ul className='space-y-2 text-sm'>
                             <li>
@@ -61,7 +64,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link to="/terms" className='text-rose-200 hover:text-pink-300 transition-colors duration-200'>
-                                    Terms & Conditions
+                                    Cookie policy
                                 </Link>
                             </li>
                             <li>
@@ -80,27 +83,27 @@ const Footer = () => {
                    
                     <div>
                         <h3 className={`font-semibold text-lg mb-4 border-b ${PINK_BORDER} inline-block`}>
-                            <span className={PINK_GRADIENT_TEXT}>Connect With Us</span>
+                            <span className={PINK_GRADIENT_TEXT}>Social Media Links</span>
                         </h3>
-                        <div className='flex space-x-4 text-2xl'>
-                         
-                            <a href="#" aria-label="Facebook" className='text-rose-200 hover:text-pink-300 transition-colors duration-200'>
-                                F
-                            </a>
-                            <a href="#" aria-label="Twitter" className='text-rose-200 hover:text-pink-300 transition-colors duration-200'>
-                                T
-                            </a>
-                            <a href="#" aria-label="LinkedIn" className='text-rose-200 hover:text-pink-300 transition-colors duration-200'>
-                                L
-                            </a>
-                            <a href="#" aria-label="Instagram" className='text-rose-200 hover:text-pink-300 transition-colors duration-200'>
-                                I
-                            </a>
-                        </div>
+                        
+                        <div className='flex flex-row gap-2 '> 
+                    <div className='bg-base-300 rounded-full p-4'>
+                    <FaFacebook className='size-5 text-gray-600'></FaFacebook>
                     </div>
-                </div>
+                   <div className='bg-base-300 rounded-full p-4'>
+                   <FaInstagram className='size-5 text-gray-600'></FaInstagram>
+                   </div>
+                    <div className='bg-base-300 rounded-full p-4'>
+                    <FaPinterest className='size-5 text-gray-600'></FaPinterest>
+                   </div>
+                    <div className='bg-base-300 rounded-full p-4'>
+                   <BsTwitterX className='size-5 text-gray-600'></BsTwitterX>
+                    </div>
+                    
+                    </div>
+                    </div>
 
-                
+                </div>
                 <div className='pt-6 text-center text-sm text-rose-400'>
                     &copy; {new Date().getFullYear()} HomeNest. All rights reserved.
                 </div>

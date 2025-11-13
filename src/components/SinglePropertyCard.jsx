@@ -64,7 +64,7 @@ const SinglePropertyCard = ({ property }) => {
 
       <div className="text-left p-5 space-y-3">
         <div className="flex justify-between items-start">
-          <h2 className="font-extrabold text-xl text-gray-800 line-clamp-1">
+          <h2 className={`font-extrabold text-xl ${PINK_ACCENT} line-clamp-1`}>
             {property.property_name}
           </h2>
         </div>

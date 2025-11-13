@@ -54,7 +54,7 @@ const ExpertAgents = () => {
                         </figure>
                         
                         <div className="p-5">
-                            <h4 className='text-xl font-bold text-gray-800'>{agent.name}</h4>
+                            <h4 className='text-xl font-bold text-gray-600'>{agent.name}</h4>
                             <p className={`text-sm font-semibold mb-3 ${PINK_ACCENT}`}>{agent.title}</p>
                             
                             <div className="flex items-center justify-center gap-2 text-gray-600 text-sm mb-4">

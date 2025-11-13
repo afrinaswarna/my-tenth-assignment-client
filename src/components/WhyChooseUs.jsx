@@ -60,7 +60,7 @@ const WhyChooseUs = () => {
                         </div>
                         
                       
-                        <h4 className={`text-xl font-extrabold mb-3 text-gray-800`}>
+                        <h4 className={`text-xl font-extrabold mb-3 text-gray-600`}>
                             {feature.title}
                         </h4>
                         

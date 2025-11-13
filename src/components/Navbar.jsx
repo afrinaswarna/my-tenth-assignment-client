@@ -1,11 +1,12 @@
 import React, { use, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, userLogout } = use(AuthContext);
   const [theme,setTheme] = useState(localStorage.getItem('theme') || 'light')
-
+const navigate = useNavigate()
   useEffect(()=>{
     const html = document.querySelector('html')
     html.setAttribute("data-theme",theme)
@@ -33,7 +34,14 @@ const Navbar = () => {
     }`;
   
   const handleLogout = () => {
-    userLogout();
+    userLogout()
+      .then(() => {
+        toast.success('You logged out successfully');
+        navigate('/');
+      })
+      .catch(e => {
+        toast.error(e.message);
+      });
   };
 const handleTheme=(checked)=>{
 setTheme(checked?"dark":"light")

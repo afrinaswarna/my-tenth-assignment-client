@@ -50,6 +50,7 @@ const AddProperty = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Property added successfully");
+            e.target.reset();
         }
       })
       .catch((e) => {

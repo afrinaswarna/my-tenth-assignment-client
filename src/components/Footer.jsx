@@ -104,7 +104,7 @@ const Footer = () => {
                     </div>
 
                 </div>
-                <div className='pt-6 text-center text-sm text-rose-400'>
+                <div className='pt-6 text-center text-sm text-white'>
                     &copy; {new Date().getFullYear()} HomeNest. All rights reserved.
                 </div>
             </div>

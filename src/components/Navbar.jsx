@@ -1,9 +1,17 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, userLogout } = use(AuthContext);
+  const [theme,setTheme] = useState(localStorage.getItem('theme') || 'light')
+
+  useEffect(()=>{
+    const html = document.querySelector('html')
+    html.setAttribute("data-theme",theme)
+    localStorage.setItem("theme",theme)
+
+  },[theme])
 
   
   const baseButtonStyle =
@@ -27,7 +35,9 @@ const Navbar = () => {
   const handleLogout = () => {
     userLogout();
   };
-
+const handleTheme=(checked)=>{
+setTheme(checked?"dark":"light")
+}
   return (
     <div className="flex items-center justify-between py-4 w-11/12 mx-auto">
       
@@ -50,7 +60,13 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+      
 
+  <div className="flex items-center gap-3">
+    <input 
+    type="checkbox" 
+    onChange={(e)=>handleTheme(e.target.checked)}
+    className="toggle" />
       <div>
         {user ? (
           <div className="dropdown dropdown-end">
@@ -78,8 +94,8 @@ const Navbar = () => {
 
               <button
                 onClick={handleLogout}
-                className="w-full py-2 mt-2 text-white bg-red-500 hover:bg-red-600 rounded-md"
-              >
+                className="w-full py-2 mt-2 text-white font-semibold  bg-linear-to-r from-[#FF6B6B] via-[#FF8E8E] to-[#E05297] 
+                  hover:from-[#E05297] hover:to-[#FF6B6B] transition duration-500 ease-in-out rounded-md">
                 Log Out
               </button>
             </ul>
@@ -109,6 +125,7 @@ const Navbar = () => {
             </NavLink>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

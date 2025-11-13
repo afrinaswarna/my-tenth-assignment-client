@@ -28,7 +28,9 @@ const SinglePropertyCard = ({property}) => {
        </div>
        <div className='flex justify-between items-center'>
         <p className='text-gray-500 text-sm font-medium'> <span className='font-bold text-gray-600'>Location:</span>{property.location}</p>
-        <Link to={`/propertyDetails/${property._id}`} className='btn-primary py-2 px-4 rounded-lg shadow-2xl text-sm text-white font-bold'>See Details</Link>
+        <Link to={`/propertyDetails/${property._id}`} className='btn-primary py-2 px-4 text-white rounded-lg 
+                  bg-linear-to-r from-[#FF6B6B] via-[#FF8E8E] to-[#E05297] 
+                  hover:from-[#E05297] hover:to-[#FF6B6B] transition duration-500 ease-in-out mt-6'>See Details</Link>
        </div>
     </div>
     

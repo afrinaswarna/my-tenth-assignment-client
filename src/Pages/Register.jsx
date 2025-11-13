@@ -134,7 +134,7 @@ const Register = () => {
                   >
                     <g>
                       {" "}
-                      <path d="m0 0H512V512H0" fill="#fff"></path>             
+                      <path d="m0 0H512V512H0" fill="#fff"></path>
                       <path
                         fill="#34a853"
                         d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"

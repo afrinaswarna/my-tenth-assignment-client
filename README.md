@@ -18,6 +18,8 @@
 *We offer a comprehensive and diverse database of Featured Real Estates that are meticulously verified for authenticity and quality.*
 *Whether you're looking to Rent or Buy, every listing is presented with accurate details, ensuring you only browse reliable properties.*
 
+
+ ## Dependencies
 "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.16",
